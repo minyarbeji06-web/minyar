@@ -1,0 +1,69 @@
+<div class="verification-page">
+  <div class="verification-card">
+    <div class="brand">VIBELY</div>
+    <p class="subtitle">TICKET VERIFICATION</p>
+
+    @if (loading) {
+      <div class="loading">
+        <div class="spinner"></div>
+        <h2>Checking your ticket...</h2>
+        <p>Please wait</p>
+      </div>
+    }
+
+    @if (!loading && verification) {
+      @if (verification.valid) {
+        <div class="result-icon valid-icon">✓</div>
+        <h1 class="valid-title">VALID TICKET</h1>
+        <p class="description">This ticket is confirmed and valid.</p>
+      } @else {
+        <div class="result-icon invalid-icon">✕</div>
+        <h1 class="invalid-title">
+          {{ verification.message === 'Ticket cancelled' ? 'CANCELLED TICKET' : 'INVALID TICKET' }}
+        </h1>
+        <p class="description">{{ verification.message }}</p>
+      }
+
+      @if (verification.ticket) {
+        <div class="ticket-details">
+          <div class="detail">
+            <span>Ticket ID</span>
+            <strong>#{{ verification.ticket.id }}</strong>
+          </div>
+
+          <div class="detail">
+            <span>Event</span>
+            <strong>{{ verification.ticket.event_title }}</strong>
+          </div>
+
+          <div class="detail">
+            <span>Ticket Code</span>
+            <strong>{{ verification.ticket.ticket_code }}</strong>
+          </div>
+
+          <div class="detail">
+            <span>Status</span>
+            <strong>
+              {{ verification.ticket.status === 'booked' ? 'Réservé' : 'Annulé' }}
+            </strong>
+          </div>
+
+          <div class="detail">
+            <span>Event Date</span>
+            <strong>
+              {{ verification.ticket.start_date | date: 'dd/MM/yyyy HH:mm' }}
+            </strong>
+          </div>
+        </div>
+      }
+    }
+
+    @if (!loading && errorMessage) {
+      <div class="invalid-icon result-icon">!</div>
+      <h1 class="invalid-title">VERIFICATION ERROR</h1>
+      <p class="description">{{ errorMessage }}</p>
+    }
+
+    <div class="footer">VIBELY © 2026 — Your events, your memories.</div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+
+{
+  "name": "campus_tech_event_hub",
+  "version": "1.0.0",
+  "description": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.24.6",
+    "qrcode": "^1.5.4",
+    "sequelize": "^6.37.8",
+    "uuid": "^14.0.3"
+  },
+  "devDependencies": {
+    "@types/qrcode": "^1.5.6",
+    "nodemon": "^3.1.14"
+  }
+}

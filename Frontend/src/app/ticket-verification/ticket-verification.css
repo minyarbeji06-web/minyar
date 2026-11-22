@@ -1,0 +1,243 @@
+
+.verification-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    box-sizing: border-box;
+    background:
+      radial-gradient(ellipse at 50% 0%, #51277d 0%, transparent 55%),
+      linear-gradient(135deg, #080510, #160d27 55%, #0b0813);
+    font-family: Arial, sans-serif;
+    color: #f5efff;
+  }
+  
+  .verification-card {
+    width: 100%;
+    max-width: 520px;
+    padding: 42px;
+    box-sizing: border-box;
+    text-align: center;
+    background: linear-gradient(145deg, #291a3cdd, #171020ee);
+    backdrop-filter: blur(18px);
+    border: 1px solid #a66bdf66;
+    border-radius: 28px;
+    box-shadow:
+      0 20px 70px #00000088,
+      0 0 35px #a855f722;
+    animation: cardAppear 0.8s ease both;
+  }
+  
+  .brand {
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 9px;
+    color: #e5caff;
+    text-shadow: 0 0 25px #a855f799;
+    animation: brandGlow 3s ease-in-out infinite alternate;
+  }
+  
+  .subtitle {
+    color: #bba8ce;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 38px;
+  }
+  
+  .result-icon {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 48px;
+    font-weight: bold;
+    animation: iconAppear 0.7s ease both;
+  }
+  
+  .valid-icon {
+    color: #75e6a5;
+    background: #174b3444;
+    border: 2px solid #47c981;
+    box-shadow: 0 0 30px #47c98144;
+  }
+  
+  .invalid-icon {
+    color: #ff7187;
+    background: #641d3044;
+    border: 2px solid #e34b70;
+    box-shadow: 0 0 30px #e34b7044;
+  }
+  
+  .valid-title {
+    color: #75e6a5;
+    font-size: 28px;
+    letter-spacing: 3px;
+  }
+  
+  .invalid-title {
+    color: #ff7187;
+    font-size: 25px;
+    letter-spacing: 2px;
+  }
+  
+  .description {
+    color: #d0bfdf;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+  
+  .ticket-details {
+    padding: 22px;
+    text-align: left;
+    background: #100b1cbb;
+    border: 1px solid #8050ad88;
+    border-radius: 18px;
+    box-shadow: inset 0 0 20px #a855f70a;
+    animation: fadeUp 0.7s ease both;
+  }
+  
+  .detail {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px 0;
+    border-bottom: 1px dashed #60417f;
+  }
+  
+  .detail:last-child {
+    border-bottom: none;
+  }
+  
+  .detail span {
+    color: #b9a6cc;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+  
+  .detail strong {
+    color: #f5eaff;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+    line-height: 1.6;
+  }
+  
+  .loading {
+    padding: 30px 0;
+  }
+  
+  .loading h2 {
+    color: #e0c3ff;
+    font-size: 20px;
+  }
+  
+  .loading p {
+    color: #b9a6cc;
+  }
+  
+  .spinner {
+    width: 45px;
+    height: 45px;
+    margin: 0 auto 20px;
+    border: 4px solid #60417f;
+    border-top-color: #d8aaff;
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+  }
+  
+  .footer {
+    margin-top: 35px;
+    padding-top: 20px;
+    border-top: 1px solid #70458d66;
+    color: #a493b6;
+    font-size: 11px;
+    letter-spacing: 1px;
+    line-height: 1.7;
+  }
+  
+  @keyframes cardAppear {
+    from {
+      opacity: 0;
+      transform: translateY(25px) scale(0.97);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  @keyframes iconAppear {
+    from {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes brandGlow {
+    from {
+      text-shadow: 0 0 10px #c084fc55;
+    }
+    to {
+      text-shadow: 0 0 25px #c084fcbb;
+    }
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .verification-page {
+      padding: 15px;
+    }
+  
+    .verification-card {
+      padding: 28px 19px;
+      border-radius: 22px;
+    }
+  
+    .brand {
+      font-size: 32px;
+      letter-spacing: 7px;
+    }
+  
+    .valid-title,
+    .invalid-title {
+      font-size: 21px;
+    }
+  
+    .ticket-details {
+      padding: 16px;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  

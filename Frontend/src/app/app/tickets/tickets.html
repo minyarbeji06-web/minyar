@@ -1,0 +1,216 @@
+<div class="page">
+  <!-- HEADER -->
+  <header class="header">
+    <span class="header-tag">YOUR EVENT EXPERIENCE</span>
+    <h1>VIBELY</h1>
+    <p>Your events, your tickets, your memories.</p>
+    <div class="header-line"></div>
+  </header>
+
+  <!-- ANIMATED STATISTICS -->
+  <section class="statistics">
+    <div class="stat-card">
+      <span class="stat-icon">🎟</span>
+      <h3>{{ totalTickets }}</h3>
+      <p>Total Tickets</p>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-icon">✓</span>
+      <h3>{{ activeTickets }}</h3>
+      <p>Confirmed</p>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-icon">✕</span>
+      <h3>{{ cancelledTickets }}</h3>
+      <p>Cancelled</p>
+    </div>
+  </section>
+
+  <!-- BOOKING FORM -->
+  <section class="booking-card">
+    <div class="section-heading">
+      <span class="section-icon">✦</span>
+      <div>
+        <h2>Book Your Ticket</h2>
+        <p>Reserve your place at your favorite event.</p>
+      </div>
+    </div>
+
+    <label for="userId">User ID</label>
+    <input id="userId" type="number" [(ngModel)]="userId" />
+
+    <label for="eventId">Event ID</label>
+    <input id="eventId" type="number" [(ngModel)]="eventId" placeholder="Enter Event ID" />
+
+    <button class="book-btn" (click)="bookTicket()" [disabled]="loading">
+      {{ loading ? 'Booking...' : '✦ Book Your Ticket' }}
+    </button>
+  </section>
+
+  <!-- MESSAGES -->
+  @if (message) {
+    <p class="success">{{ message }}</p>
+  }
+
+  @if (errorMessage) {
+    <p class="error">{{ errorMessage }}</p>
+  }
+
+  <!-- MY TICKETS -->
+  <section class="tickets-section">
+    <div class="section-heading">
+      <span class="section-icon">🎟</span>
+      <div>
+        <h2>My Tickets</h2>
+        <p>Your personal event collection.</p>
+      </div>
+    </div>
+
+    @if (loading) {
+      <p class="loading-text">Loading your tickets...</p>
+    }
+
+    @if (!loading && tickets.length === 0) {
+      <p class="empty-text">No tickets found. Book your first event!</p>
+    }
+
+    <div class="tickets-list">
+      @for (ticket of tickets; track ticket.id) {
+        <!-- 3D TICKET -->
+        <div class="ticket-card" [class.flipped]="flippedTicketId === ticket.id">
+          <div class="ticket-inner">
+            <!-- FRONT SIDE -->
+            <div class="ticket-front">
+              <!-- TICKET INFORMATION -->
+              <div class="ticket-info">
+                <span class="event-label">VIBELY EVENT</span>
+
+                <h3>
+                  {{ ticket.event_title || ticket.title || 'Event #' + ticket.event_id }}
+                </h3>
+
+                <!-- AVAILABLE SEATS -->
+                <div class="seats-section">
+                  <div class="seats-header">
+                    <span>AVAILABLE SEATS</span>
+
+                    <strong>
+                      {{ ticket.available_seats ?? 'N/A' }}
+                      / {{ ticket.capacity ?? 'N/A' }}
+                    </strong>
+                  </div>
+
+                  <div class="progress-track">
+                    <div class="progress-fill" [style.width.%]="getBookedPercentage(ticket)"></div>
+                  </div>
+
+                  <div class="seats-footer">
+                    <span>{{ getSeatsMessage(ticket) }}</span>
+
+                    <strong> {{ getBookedPercentage(ticket) | number: '1.0-0' }}% booked </strong>
+                  </div>
+                </div>
+
+                <div class="ticket-divider"></div>
+
+                <p>
+                  <span>Ticket ID</span>
+                  <strong>#{{ ticket.id }}</strong>
+                </p>
+
+                <p class="ticket-code">
+                  <span>Ticket Code</span>
+                  <strong>{{ ticket.ticket_code }}</strong>
+                </p>
+
+                <p>
+                  <span>Status</span>
+
+                  <strong
+                    class="status"
+                    [class.confirmed]="ticket.status === 'booked'"
+                    [class.cancelled]="ticket.status === 'cancelled'"
+                  >
+                    {{ ticket.status === 'booked' ? 'Confirmé' : 'Annulé' }}
+                  </strong>
+                </p>
+
+                <p>
+                  <span>Booking Date</span>
+                  <strong>{{ ticket.booked_at | date: 'medium' }}</strong>
+                </p>
+
+                @if (ticket.start_date) {
+                  <p>
+                    <span>Event Date</span>
+                    <strong>{{ ticket.start_date | date: 'medium' }}</strong>
+                  </p>
+
+                  @if (ticket.status === 'booked') {
+                    <div class="countdown-box">
+                      <span>TIME LEFT BEFORE EVENT</span>
+
+                      <strong>
+                        {{ countdowns[ticket.id] || 'Calculating...' }}
+                      </strong>
+                    </div>
+                  }
+                }
+              </div>
+
+              <!-- QR CODE -->
+              <div class="qr-box">
+                @if (qrCodes[ticket.id]) {
+                  <img [src]="qrCodes[ticket.id]" alt="Ticket QR Code" width="140" />
+                }
+
+                <span>SCAN YOUR TICKET</span>
+              </div>
+
+              <!-- ACTIONS -->
+              <div class="ticket-actions">
+                @if (ticket.status === 'booked') {
+                  <button type="button" class="cancel-btn" (click)="cancelTicket(ticket.id)">
+                    Cancel Ticket
+                  </button>
+                }
+
+                <button type="button" class="flip-btn" (click)="flipTicket(ticket.id)">
+                  ✦ View 3D Back
+                </button>
+              </div>
+            </div>
+
+            <!-- BACK SIDE -->
+            <div class="ticket-back">
+              <span class="event-label"> VIBELY PREMIUM TICKET </span>
+
+              <div class="back-ticket-icon">🎟</div>
+
+              <h2>VIBELY</h2>
+
+              <div class="back-line"></div>
+
+              <p>Your events, your tickets, your memories.</p>
+
+              <div class="back-ticket-number">TICKET #{{ ticket.id }}</div>
+
+              <p class="back-thanks">Thank you for choosing VIBELY!</p>
+
+              <button type="button" class="flip-btn" (click)="flipTicket(ticket.id)">
+                ↩ Back to Ticket
+              </button>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>VIBELY © 2026 — Your events, your memories.</p>
+  </footer>
+</div>

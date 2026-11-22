@@ -1,0 +1,1518 @@
+
+/* ==========================================
+   VIBELY - Chocolate Brown & Blue Glow
+   ========================================== */
+
+   :root {
+    --chocolate: #5C4033;
+    --coffee: #8B6F5C;
+    --cream: #F5EFE6;
+    --soft-cream: #FFFDF8;
+    --baby-blue: #A9D6E5;
+    --sky-blue: #D8EEF5;
+    --text: #4A352B;
+    --muted: #8B786B;
+    --success: #43866B;
+    --danger: #BD5962;
+  
+    --blue-shadow: 0 8px 25px #A9D6E566;
+    --blue-glow: 0 0 25px #A9D6E588;
+  }
+  
+  /* PAGE */
+  
+  .page {
+    min-height: 100vh;
+    padding: 35px 20px;
+    background:
+      radial-gradient(ellipse at top right, #D8EEF5 0%, transparent 45%),
+      linear-gradient(135deg, #F5EFE6, #FFFDF8 55%, #F5EFE6);
+    font-family: Arial, sans-serif;
+    color: var(--text);
+  }
+  
+  /* HEADER */
+  
+  .header {
+    max-width: 850px;
+    margin: 0 auto;
+    text-align: center;
+    background: linear-gradient(135deg, #5C4033, #8B6F5C, #5C4033);
+    color: white;
+    padding: 45px 25px;
+    border: 1px solid var(--baby-blue);
+    border-radius: 22px;
+    box-shadow: var(--blue-shadow);
+    animation: heroAppear 1s ease both;
+  }
+  
+  .header h1 {
+    font-size: 42px;
+    letter-spacing: 7px;
+    margin-bottom: 12px;
+    animation: titleGlow 3s ease-in-out infinite alternate;
+  }
+  
+  .header p {
+    color: var(--cream);
+    letter-spacing: 1px;
+  }
+  
+  /* HEADER DETAILS */
+  
+  .header-tag {
+    display: inline-block;
+    color: var(--baby-blue);
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+  }
+  
+  .header-line {
+    width: 55px;
+    height: 3px;
+    background: var(--baby-blue);
+    border-radius: 10px;
+    margin: 20px auto 0;
+    box-shadow: 0 0 15px #A9D6E5;
+  }
+  
+  /* BOOKING AND TICKETS SECTIONS */
+  
+  .booking-card,
+  .tickets-section {
+    max-width: 850px;
+    margin: 28px auto;
+    background: var(--soft-cream);
+    padding: 28px;
+    border: 1px solid #D8C9BB;
+    border-radius: 20px;
+    box-shadow: var(--blue-shadow);
+    animation: fadeUp 0.8s ease both;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .booking-card:hover,
+  .tickets-section:hover {
+    box-shadow: 0 12px 35px #A9D6E599;
+  }
+  
+  .booking-card h2,
+  .tickets-section h2 {
+    color: var(--chocolate);
+    margin-bottom: 22px;
+  }
+  
+  /* SECTION HEADING */
+  
+  .section-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+  
+  .section-heading h2 {
+    margin: 0 0 7px;
+  }
+  
+  .section-heading p {
+    color: var(--muted);
+    margin: 0;
+    font-size: 13px;
+  }
+  
+  .section-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+    background: var(--sky-blue);
+    border: 1px solid var(--baby-blue);
+    border-radius: 13px;
+    color: var(--chocolate);
+    font-size: 22px;
+    box-shadow: 0 4px 15px #A9D6E555;
+  }
+  
+  /* LABELS */
+  
+  .booking-card label {
+    display: block;
+    margin-top: 17px;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--chocolate);
+  }
+  
+  /* INPUTS */
+  
+  .booking-card input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px;
+    margin-top: 5px;
+    background: #FFFFFF;
+    color: var(--chocolate);
+    border: 1px solid #CDBCAD;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .booking-card input:focus {
+    border-color: var(--baby-blue);
+    box-shadow: 0 0 0 4px #A9D6E555;
+  }
+  
+  .booking-card input::placeholder {
+    color: #AA9A8D;
+  }
+  
+  /* BUTTONS */
+  
+  button {
+    border: none;
+    background: linear-gradient(135deg, #8B6F5C, #5C4033);
+    color: white;
+    padding: 13px 23px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 18px;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px #A9D6E544;
+  }
+  
+  button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px #A9D6E599;
+  }
+  
+  button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  /* BOOK BUTTON */
+  
+  .book-btn {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .book-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px #A9D6E5AA;
+  }
+  
+  /* TICKETS LIST */
+  
+  .tickets-list {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  
+  /* TICKET CARDS */
+  
+  .ticket-card {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 24px;
+    margin-top: 22px;
+    border: 1px solid #D8EEF5;
+    border-radius: 17px;
+    background: linear-gradient(135deg, #FFFDF8, #F5EFE6);
+    box-shadow: 0 5px 20px #A9D6E555;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    animation: fadeUp 0.7s ease both;
+  }
+  
+  .ticket-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px #A9D6E5AA;
+  }
+  
+  .ticket-info {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .ticket-card h3 {
+    color: var(--chocolate);
+  }
+  
+  .ticket-info h3 {
+    font-size: 23px;
+    margin: 10px 0;
+  }
+  
+  .event-label {
+    color: var(--coffee);
+    font-size: 10px;
+    letter-spacing: 3px;
+    font-weight: bold;
+  }
+  
+  .ticket-card p {
+    color: var(--muted);
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+  }
+  
+  .ticket-info p {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 13px;
+  }
+  
+  .ticket-info p span {
+    color: var(--muted);
+  }
+  
+  .ticket-info p strong {
+    color: var(--chocolate);
+    text-align: right;
+  }
+  
+  .ticket-info .ticket-code {
+    flex-direction: column;
+  }
+  
+  .ticket-info .ticket-code strong {
+    text-align: left;
+    overflow-wrap: anywhere;
+  }
+  
+  .ticket-divider {
+    border-top: 1px dashed #CDBCAD;
+    margin: 18px 0;
+  }
+  
+  /* STATUS */
+  
+  .status {
+    padding: 5px 11px;
+    border-radius: 20px;
+    font-size: 11px;
+  }
+  
+  .status.confirmed {
+    color: #32775B;
+    background: #DDF1E6;
+    border: 1px solid #A5D8BB;
+  }
+  
+  .status.cancelled {
+    color: #A33E4C;
+    background: #F9E2E4;
+    border: 1px solid #E9B7BC;
+  }
+  
+  /* QR CODE */
+  
+  .qr-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 15px;
+    background: #FFFFFF;
+    border: 1px solid var(--baby-blue);
+    border-radius: 14px;
+    min-width: 155px;
+    box-shadow: 0 5px 20px #A9D6E555;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+  
+  .qr-box img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .qr-box span {
+    color: var(--chocolate);
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+  }
+  
+  .qr-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px #A9D6E5AA;
+  }
+  
+  /* TICKET ACTIONS */
+  
+  .ticket-actions {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* CANCEL BUTTON */
+  
+  .cancel-btn {
+    background: linear-gradient(135deg, #BD5962, #99404A);
+    margin-top: 0;
+    box-shadow: 0 5px 15px #BD596244;
+  }
+  
+  .cancel-btn:hover {
+    box-shadow: 0 7px 20px #BD596277;
+  }
+  
+  /* MESSAGES */
+  
+  .success {
+    text-align: center;
+    color: var(--success);
+    font-weight: bold;
+    animation: fadeUp 0.5s ease both;
+  }
+  
+  .error {
+    text-align: center;
+    color: var(--danger);
+    font-weight: bold;
+    animation: fadeUp 0.5s ease both;
+  }
+  
+  /* LOADING AND EMPTY */
+  
+  .loading-text,
+  .empty-text {
+    color: var(--coffee);
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* FOOTER */
+  
+  .footer {
+    max-width: 850px;
+    margin: 40px auto 0;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #D8C9BB;
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+  
+  /* ANIMATIONS */
+  
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes heroAppear {
+    from {
+      opacity: 0;
+      transform: translateY(-25px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes titleGlow {
+    from {
+      text-shadow: 0 0 5px #A9D6E555;
+    }
+    to {
+      text-shadow: 0 0 18px #A9D6E5AA;
+    }
+  }
+  
+  /* MOBILE RESPONSIVE */
+  
+  @media (max-width: 600px) {
+    .page {
+      padding: 18px 12px;
+    }
+  
+    .header {
+      padding: 30px 15px;
+    }
+  
+    .header h1 {
+      font-size: 32px;
+    }
+  
+    .booking-card,
+    .tickets-section {
+      padding: 20px;
+    }
+  
+    .ticket-card {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .qr-box {
+      align-self: center;
+      width: 155px;
+      box-sizing: border-box;
+    }
+  
+    .ticket-actions {
+      width: 100%;
+    }
+  
+    .ticket-actions button {
+      width: 100%;
+    }
+  }
+  
+  /* ACCESSIBILITY */
+  
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  
+    .header h1 {
+      animation: none;
+    }
+  }
+  .footer{
+       background-color: #512d1d;
+  }
+  
+/* ==========================================
+   VIBELY - PREMIUM ANIMATIONS
+   ========================================== */
+
+/* Animated Background */
+
+.page {
+    background-size: 200% 200%;
+    animation: backgroundMove 12s ease infinite;
+  }
+  
+  @keyframes backgroundMove {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  /* Header Animation */
+  
+  .header {
+    animation: headerEnter 1s ease both;
+  }
+  
+  .header h1 {
+    animation: blueGlow 3s ease-in-out infinite alternate;
+  }
+  
+  @keyframes headerEnter {
+    from {
+      opacity: 0;
+      transform: translateY(-40px) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  @keyframes blueGlow {
+    from {
+      text-shadow: 0 0 5px #A9D6E566;
+    }
+    to {
+      text-shadow: 0 0 22px #A9D6E5, 0 0 35px #A9D6E588;
+    }
+  }
+  
+  /* Booking Card */
+  
+  .booking-card {
+    animation: slideUp 0.9s ease 0.2s both;
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(45px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Tickets Section */
+  
+  .tickets-section {
+    animation: slideUp 1s ease 0.4s both;
+  }
+  
+  /* Ticket Cards */
+  
+  .ticket-card {
+    animation: ticketEnter 0.8s ease both;
+  }
+  
+  .ticket-card:nth-child(1) {
+    animation-delay: 0.15s;
+  }
+  
+  .ticket-card:nth-child(2) {
+    animation-delay: 0.3s;
+  }
+  
+  .ticket-card:nth-child(3) {
+    animation-delay: 0.45s;
+  }
+  
+  .ticket-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 15px 40px #A9D6E5AA;
+  }
+  
+  @keyframes ticketEnter {
+    from {
+      opacity: 0;
+      transform: translateX(-35px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* QR Code Pulse */
+  
+  .qr-box {
+    animation: qrPulse 3s ease-in-out infinite;
+  }
+  
+  @keyframes qrPulse {
+    0%, 100% {
+      box-shadow: 0 5px 20px #A9D6E555;
+    }
+    50% {
+      box-shadow: 0 0 30px #A9D6E5CC;
+    }
+  }
+  
+  /* Buttons */
+  
+  button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.35s ease;
+  }
+  
+  button:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 10px 30px #A9D6E5AA;
+  }
+  
+  button:active {
+    transform: scale(0.96);
+  }
+  
+  /* Button Light Effect */
+  
+  button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      #FFFFFF77,
+      transparent
+    );
+    transition: left 0.6s ease;
+  }
+  
+  button:hover::before {
+    left: 150%;
+  }
+  
+  /* Input Animation */
+  
+  .booking-card input {
+    transition: all 0.3s ease;
+  }
+  
+  .booking-card input:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 0 0 4px #A9D6E555,
+                0 5px 20px #A9D6E555;
+  }
+  
+  /* Section Icon */
+  
+  .section-icon {
+    transition: transform 0.4s ease;
+  }
+  
+  .section-icon:hover {
+    transform: rotate(10deg) scale(1.12);
+    box-shadow: 0 0 22px #A9D6E5AA;
+  }
+  
+  /* Footer */
+  
+  .footer {
+    animation: fadeIn 1.2s ease 0.7s both;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Accessibility */
+  
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+/* ==========================================
+   VIBELY - LUXURY PREMIUM MOTION EFFECTS
+   ========================================== */
+
+/* Smooth Page Experience */
+
+html {
+    scroll-behavior: smooth;
+  }
+  
+  .page {
+    overflow: hidden;
+  }
+  
+  /* HEADER - Moving Light Effect */
+  
+  .header {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    box-shadow:
+      0 10px 35px #A9D6E566,
+      0 0 15px #A9D6E533;
+  }
+  
+  .header::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 55%;
+    height: 200%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      #FFFFFF22,
+      #A9D6E566,
+      transparent
+    );
+    transform: rotate(25deg);
+    animation: headerShine 6s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  @keyframes headerShine {
+    0%, 15% {
+      left: -100%;
+    }
+    65%, 100% {
+      left: 150%;
+    }
+  }
+  
+  /* Header Subtitle */
+  
+  .header p {
+    animation: subtitleAppear 1.2s ease both;
+    animation-delay: 0.4s;
+  }
+  
+  @keyframes subtitleAppear {
+    from {
+      opacity: 0;
+      letter-spacing: 5px;
+    }
+    to {
+      opacity: 1;
+      letter-spacing: 1px;
+    }
+  }
+  
+  /* SECTION ICON FLOATING */
+  
+  .section-icon {
+    animation: iconFloat 4s ease-in-out infinite;
+  }
+  
+  @keyframes iconFloat {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+  
+  /* PREMIUM CARD BORDER */
+  
+  .ticket-card {
+    position: relative;
+    isolation: isolate;
+    border: 1px solid #A9D6E588;
+    transition:
+      transform 0.45s cubic-bezier(.2,.8,.2,1),
+      box-shadow 0.45s ease,
+      border-color 0.45s ease;
+  }
+  
+  .ticket-card:hover {
+    transform: translateY(-9px) scale(1.015);
+    border-color: #A9D6E5;
+    box-shadow:
+      0 15px 35px #A9D6E588,
+      0 0 15px #A9D6E544;
+  }
+  
+  /* Card Light Sweep */
+  
+  .ticket-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      110deg,
+      transparent,
+      #A9D6E522,
+      transparent
+    );
+    transform: skewX(-20deg);
+    transition: left 0.8s ease;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  .ticket-card:hover::after {
+    left: 150%;
+  }
+  
+  /* BOOKING CARD HOVER */
+  
+  .booking-card,
+  .tickets-section {
+    transition:
+      transform 0.4s ease,
+      box-shadow 0.4s ease,
+      border-color 0.4s ease;
+  }
+  
+  .booking-card:hover,
+  .tickets-section:hover {
+    border-color: #A9D6E5;
+    box-shadow:
+      0 12px 35px #A9D6E577,
+      0 0 12px #A9D6E533;
+  }
+  
+  /* QR CODE PREMIUM EFFECT */
+  
+  .qr-box {
+    transition: all 0.45s cubic-bezier(.2,.8,.2,1);
+  }
+  
+  .qr-box:hover {
+    transform: translateY(-7px) scale(1.06);
+    box-shadow:
+      0 12px 30px #A9D6E599,
+      0 0 20px #A9D6E566;
+  }
+  
+  /* BUTTON SHINE */
+  
+  button {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    transition: all 0.35s ease;
+  }
+  
+  button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 70%;
+    height: 100%;
+    background: linear-gradient(
+      110deg,
+      transparent,
+      #FFFFFF66,
+      transparent
+    );
+    transform: skewX(-20deg);
+    transition: left 0.65s ease;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  button:hover::before {
+    left: 150%;
+  }
+  
+  button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 9px 28px #A9D6E599;
+  }
+  
+  button:active {
+    transform: scale(0.97);
+  }
+  
+  /* INPUT FOCUS */
+  
+  .booking-card input {
+    transition: all 0.35s ease;
+  }
+  
+  .booking-card input:focus {
+    transform: translateY(-2px);
+    border-color: var(--baby-blue);
+    box-shadow:
+      0 0 0 4px #A9D6E544,
+      0 7px 20px #A9D6E544;
+  }
+  
+  /* STATUS ANIMATION */
+  
+  .status.confirmed {
+    animation: statusGlow 3s ease-in-out infinite;
+  }
+  
+  @keyframes statusGlow {
+    0%, 100% {
+      box-shadow: 0 0 0 #A9D6E500;
+    }
+    50% {
+      box-shadow: 0 0 12px #A9D6E588;
+    }
+  }
+  
+  /* FOOTER */
+  
+  .footer {
+    transition: color 0.3s ease;
+  }
+  
+  .footer:hover {
+    color: var(--chocolate);
+  }
+  
+  /* ACCESSIBILITY */
+  
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  
+/* ==========================================
+   VIBELY - ANIMATED HEART
+   ========================================== */
+
+.heart-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px auto;
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.heart-animation::before {
+  content: "♥";
+  color: #A9D6E5;
+  font-size: 65px;
+  text-shadow:
+    0 0 10px #A9D6E5,
+    0 0 25px #A9D6E5,
+    0 0 45px #72BED8;
+  animation: heartBeat 1.2s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.25);
+  }
+  30% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.18);
+  }
+  60% {
+    transform: scale(1);
+  }
+}
+
+/* Floating Hearts */
+
+.heart-animation::after {
+  content: "♥  ♥  ♥";
+  position: absolute;
+  color: #A9D6E5;
+  font-size: 15px;
+  letter-spacing: 12px;
+  white-space: nowrap;
+  animation: floatingHearts 3s ease-in-out infinite;
+}
+
+@keyframes floatingHearts {
+  0% {
+    opacity: 0;
+    transform: translateY(25px) scale(.7);
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-45px) scale(1.2);
+  }
+}
+
+/* ==========================================
+   VIBELY - STATISTICS & COUNTDOWN
+   ========================================== */
+
+   .statistics {
+    max-width: 850px;
+    margin: 28px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  
+  .stat-card {
+    background: #FFFDF8;
+    border: 1px solid #A9D6E5;
+    border-radius: 17px;
+    padding: 22px 15px;
+    text-align: center;
+    box-shadow: 0 8px 25px #A9D6E566;
+    animation: statAppear .8s ease both;
+    transition: transform .3s ease, box-shadow .3s ease;
+  }
+  
+  .stat-card:nth-child(2) {
+    animation-delay: .15s;
+  }
+  
+  .stat-card:nth-child(3) {
+    animation-delay: .3s;
+  }
+  
+  .stat-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 30px #A9D6E599;
+  }
+  
+  .stat-icon {
+    display: block;
+    font-size: 25px;
+    color: #8B6F5C;
+  }
+  
+  .stat-card h3 {
+    color: #5C4033;
+    font-size: 32px;
+    margin: 10px 0;
+  }
+  
+  .stat-card p {
+    color: #8B786B;
+    font-size: 13px;
+    margin: 0;
+  }
+  
+  @keyframes statAppear {
+    from {
+      opacity: 0;
+      transform: translateY(25px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* COUNTDOWN */
+  
+  .countdown-box {
+    margin-top: 18px;
+    padding: 16px;
+    background: linear-gradient(135deg, #D8EEF5, #FFFDF8);
+    border: 1px solid #A9D6E5;
+    border-radius: 13px;
+    box-shadow: 0 5px 20px #A9D6E566;
+  }
+  
+  .countdown-box span {
+    display: block;
+    color: #8B6F5C;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+  
+  .countdown-box strong {
+    display: block;
+    color: #5C4033;
+    font-size: 17px;
+    font-weight: bold;
+    animation: countdownGlow 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes countdownGlow {
+    from {
+      text-shadow: 0 0 2px #A9D6E5;
+    }
+    to {
+      text-shadow: 0 0 12px #72BED8;
+    }
+  }
+  
+  /* MOBILE */
+  
+  @media (max-width: 600px) {
+    .statistics {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+  
+    .stat-card {
+      padding: 16px;
+    }
+  
+    .countdown-box strong {
+      font-size: 14px;
+    }
+  }
+  
+/* ==========================================
+   VIBELY - AVAILABLE SEATS PROGRESS BAR
+========================================== */
+
+.seats-section {
+    margin: 20px 0;
+    padding: 18px;
+    background: linear-gradient(135deg, #FFFDF8, #D8EEF5);
+    border: 1px solid #A9D6E5;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px #72BED866;
+    animation: seatsAppear 0.8s ease both;
+  }
+  
+  .seats-header,
+  .seats-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .seats-header span {
+    color: #8B6F5C;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+  }
+  
+  .seats-header strong {
+    color: #5C4033;
+    font-size: 15px;
+  }
+  
+  .progress-track {
+    width: 100%;
+    height: 12px;
+    margin: 16px 0 11px;
+    background: #E5DED5;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #A9D6E5, #5CAAC5);
+    border-radius: 20px;
+    box-shadow: 0 0 12px #72BED8;
+    transition: width 1.2s ease-in-out;
+    animation: progressGlow 2s infinite alternate;
+  }
+  
+  .seats-footer span {
+    color: #8B6F5C;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  
+  .seats-footer strong {
+    color: #5C4033;
+    font-size: 12px;
+  }
+  
+  @keyframes progressGlow {
+    from {
+      box-shadow: 0 0 4px #A9D6E5;
+    }
+    to {
+      box-shadow: 0 0 15px #72BED8;
+    }
+  }
+  
+  @keyframes seatsAppear {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .seats-header,
+    .seats-footer {
+      flex-wrap: wrap;
+    }
+  }
+  
+/* ==========================================
+   VIBELY - 3D DIGITAL TICKET
+========================================== */
+
+.ticket-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition:
+      transform 0.5s ease,
+      box-shadow 0.5s ease,
+      border-color 0.5s ease;
+  }
+  
+  .ticket-card:hover {
+    transform: perspective(1000px) rotateX(2deg) rotateY(-3deg) translateY(-9px);
+    border-color: #A9D6E5;
+    box-shadow:
+      0 20px 40px #A9D6E588,
+      0 0 25px #A9D6E566;
+  }
+  
+  .ticket-info,
+  .qr-box {
+    transform: translateZ(15px);
+  }
+  
+  .qr-box {
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+  }
+  
+  .ticket-card:hover .qr-box {
+    transform: translateZ(35px) scale(1.04);
+    box-shadow: 0 0 30px #A9D6E5AA;
+  }
+  
+  .ticket-card::before {
+    content: "VIBELY";
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    color: #A9D6E533;
+    font-size: 35px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    pointer-events: none;
+    transform: translateZ(5px);
+  }
+  
+  @media (max-width: 600px) {
+    .ticket-card:hover {
+      transform: translateY(-4px);
+    }
+  }
+
+/* ==========================================
+   VIBELY - 3D TICKET LIGHT REFLECTION
+========================================== */
+
+.ticket-card {
+    isolation: isolate;
+  }
+  
+  .ticket-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0;
+    background: linear-gradient(
+      115deg,
+      transparent 20%,
+      #A9D6E544 45%,
+      #FFFFFF66 50%,
+      #A9D6E544 55%,
+      transparent 80%
+    );
+    background-size: 250% 100%;
+    transition: opacity 0.4s ease;
+  }
+  
+  .ticket-card:hover::after {
+    opacity: 1;
+    animation: ticketLightMove 1.5s ease forwards;
+  }
+  
+  .ticket-card > * {
+    position: relative;
+    z-index: 1;
+  }
+  
+  @keyframes ticketLightMove {
+    from {
+      background-position: 100% 0;
+    }
+    to {
+      background-position: -100% 0;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .ticket-card:hover::after {
+      animation: none;
+    }
+  }
+
+/* ==========================================
+   VIBELY - PREMIUM 3D FLIP TICKET
+========================================== */
+
+.ticket-card {
+    perspective: 1200px;
+    overflow: visible;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    transform: none;
+  }
+  
+  .ticket-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .ticket-inner {
+    position: relative;
+    width: 100%;
+    min-height: 420px;
+    transform-style: preserve-3d;
+    transition: transform 0.9s cubic-bezier(.2,.8,.2,1);
+  }
+  
+  .ticket-card.flipped .ticket-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .ticket-front,
+  .ticket-back {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    min-height: 420px;
+    box-sizing: border-box;
+    padding: 24px;
+    border: 1px solid #A9D6E5;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #FFFDF8, #F5EFE6);
+    box-shadow: 0 8px 25px #A9D6E566;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  
+  .ticket-front {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .ticket-back {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background:
+      radial-gradient(circle at top, #A9D6E566, transparent 55%),
+      linear-gradient(135deg, #5C4033, #8B6F5C);
+    color: white;
+    border: 1px solid #A9D6E5;
+    box-shadow: 0 10px 35px #72BED899;
+  }
+  
+  .ticket-back .event-label {
+    color: #D8EEF5;
+  }
+  
+  .ticket-back h2 {
+    color: white;
+    font-size: 38px;
+    letter-spacing: 8px;
+    margin: 10px 0;
+    text-shadow: 0 0 20px #A9D6E5;
+  }
+  
+  .back-ticket-icon {
+    font-size: 65px;
+    margin: 15px 0;
+    filter: drop-shadow(0 0 15px #A9D6E5);
+  }
+  
+  .back-line {
+    width: 65px;
+    height: 3px;
+    background: #A9D6E5;
+    border-radius: 10px;
+    margin: 12px auto;
+    box-shadow: 0 0 15px #A9D6E5;
+  }
+  
+  .ticket-back p {
+    color: #F5EFE6;
+  }
+  
+  .back-ticket-number {
+    margin: 20px 0;
+    padding: 12px 22px;
+    border: 1px dashed #D8EEF5;
+    border-radius: 10px;
+    color: #D8EEF5;
+    letter-spacing: 2px;
+    font-weight: bold;
+  }
+  
+  .back-thanks {
+    font-size: 13px;
+  }
+  
+  .flip-btn {
+    background: linear-gradient(135deg, #A9D6E5, #5CAAC5);
+    color: #4A352B;
+    font-weight: bold;
+    margin: 10px 5px;
+    box-shadow: 0 5px 20px #A9D6E588;
+  }
+  
+  .flip-btn:hover {
+    box-shadow: 0 8px 25px #A9D6E5CC;
+  }
+  
+  .ticket-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  @media (max-width: 600px) {
+    .ticket-inner,
+    .ticket-front,
+    .ticket-back {
+      min-height: 570px;
+    }
+  
+    .ticket-front {
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+    }
+  
+    .ticket-actions {
+      flex-direction: column;
+    }
+  
+    .ticket-actions button {
+      width: 100%;
+    }
+  }
+  
+  
+  
+  
+
+  
